@@ -192,16 +192,34 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center bottom;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 400px; /* ajusta altura para que se note el centrado vertical */
-    text-align: center;
+    position: relative;
+    height: 400px; /* Ajusta según tamaño de imagen */
 ">
-    <h2 class="section-title" style="margin: 0;">Faltan:</h2>
-    <div id="countdown" class="countdown-box" style="margin-top: 10px;">Cargando...</div>
+    <h2 class="section-title" style="
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+    ">Faltan:</h2>
+    
+    <div id="countdown" style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 20px;
+        font-size: 2em;
+        font-weight: bold;
+        color: #2F4F1E;
+        width: 220px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    ">Cargando...</div>
 </section>
+
 
 
 
@@ -233,6 +251,7 @@
 
 </body>
 </html>
+
 
 
 

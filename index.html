@@ -28,7 +28,7 @@
             width: 300px;
             max-width: 80%;
             height: auto;
-            animation: swing 3s infinite, float 6s ease-in-out infinite;
+            animation: swing 6s infinite ease-in-out, float 4s ease-in-out infinite;
         }
         .name-below {
             font-family: 'Rock Salt', cursive;
@@ -49,6 +49,7 @@
             transform: translateY(20px);
             opacity: 0;
             transition: transform 0.3s, opacity 0.3s;
+            position: relative;
         }
         .section:hover {
             transform: translateY(-5px) scale(1.02);
@@ -60,7 +61,6 @@
             text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
             margin-bottom: 10px;
         }
-
         .section-text {
             font-size: 1.3em;
             color: #3E3E3E;
@@ -70,20 +70,22 @@
             border-radius: 15px;
             margin-bottom: 20px;
         }
-
         .countdown-box {
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 20px;
-            display: inline-block;
             font-size: 2em;
             font-weight: bold;
             color: #2F4F1E;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             margin-top: 20px;
             transition: transform 0.3s ease-in-out;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* PARA MOVER LA CAJA A LOS LADOS AJUSTA ESTOS DOS VALORES: */
+            transform: translate(calc(-50% + 0px), calc(-50% + 0px));
         }
-
         .btn {
             display: inline-block;
             padding: 14px 28px;
@@ -94,12 +96,14 @@
             margin: 10px;
             font-size: 1.2em;
             transition: transform 0.2s;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
         .btn:hover {
             transform: scale(1.05);
             animation: glow 1s infinite alternate;
         }
-
         iframe {
             width: 100%;
             height: 300px;
@@ -124,7 +128,6 @@
             transform: translateY(-5px) scale(1.1);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
-
         #baby-photo {
             width: 150px;
             height: 150px;
@@ -136,7 +139,6 @@
         }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
         @keyframes swing { 0% { transform: rotate(0deg); } 25% { transform: rotate(3deg); } 50% { transform: rotate(0deg); } 75% { transform: rotate(-3deg); } 100% { transform: rotate(0deg); } }
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
@@ -157,28 +159,16 @@
     <div class="name-below">Felipe Romero</div>
 </div>
 
-<section class="section" id="mensaje" style="background-image: url('fondo_seccion1.jpg');">
-    <h2>¡Cumple su primer añito!</h2>
-    <p>Parece mentira, pero ya pasó un año desde que llegó a nuestras vidas y queremos celebrarlo con vos.</p>
-    <img id="baby-photo" src="FOTO_DE_FELIPE.jpeg" alt="Felipe">
-    <div class="gallery">
-        <img src="foto_extra1.jpg" alt="Felipe jugando">
-        <img src="1ANIMALITOS.jpeg" alt="Felipe sonriendo">
-    </div>
-</section>
-
 <section class="section" id="detalles" style="background-image: url('fondo_seccion2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom;">
     <h2 class="section-title">Detalles del Evento</h2>
     <p class="section-text"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
     <p class="section-text"><strong>Hora:</strong> 13:00 hs</p>
-    <div>
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank">Confirmar Asistencia</a>
-    </div>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank">Confirmar Asistencia</a>
 </section>
 
 <section class="section" id="contador" style="background-image: url('fondo_seccion3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; height: 400px;">
     <h2 class="section-title" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); margin: 0;">Faltan:</h2>
-    <div id="countdown" class="countdown-box" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Cargando...</div>
+    <div id="countdown" class="countdown-box">Cargando...</div>
 </section>
 
 <section class="section" id="mapa" style="background-image: url('fondo_seccion4.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 40px 0; text-align: center;">
@@ -189,7 +179,6 @@
 <script>
     const countdown = document.getElementById('countdown');
     const eventDate = new Date('2025-08-23T13:00:00').getTime();
-    let lastTime = "";
 
     setInterval(() => {
         const now = new Date().getTime();
@@ -200,21 +189,14 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const newTime = `${days} días ${hours} horas ${minutes} min ${seconds} seg`;
-
-        if (newTime !== lastTime) {
-            countdown.style.transform = "rotateX(360deg)";
-            setTimeout(() => countdown.style.transform = "rotateX(0deg)", 500);
-        }
-
-        countdown.innerHTML = distance < 0 ? "¡Ya comenzó la fiesta!" : newTime;
-        lastTime = newTime;
+        countdown.innerHTML = distance < 0 ? "¡Ya comenzó la fiesta!" : `${days} días ${hours} horas ${minutes} min ${seconds} seg`;
     }, 1000);
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = "fadeInUp 1s forwards";
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     });

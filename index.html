@@ -1,14 +1,19 @@
+# Crear un archivo HTML mejorado con animaciones y efectos visuales
+
+html_animated = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer Añito de Felipe Romero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: #f5f5f5;
+            font-family: 'Baloo 2', cursive;
+            background: linear-gradient(180deg, #E0F7FA 0%, #ffffff 40%);
+            overflow-x: hidden;
         }
         .hero {
             position: relative;
@@ -21,7 +26,7 @@
             align-items: center;
             justify-content: flex-start;
             padding-top: 60px;
-            box-sizing: border-box;
+            animation: fadeIn 2s ease-in-out;
         }
         .wood-sign {
             width: 80%;
@@ -33,19 +38,26 @@
             align-items: center;
             justify-content: center;
             color: #6B4F2A;
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
             margin-bottom: 20px;
+            animation: swing 3s infinite;
         }
         .section {
             padding: 40px 20px;
             text-align: center;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             margin: 20px auto;
             max-width: 600px;
             border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 1s forwards;
         }
+        .section:nth-of-type(2) { animation-delay: 1s; }
+        .section:nth-of-type(3) { animation-delay: 2s; }
+        .section:nth-of-type(4) { animation-delay: 3s; }
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -55,6 +67,10 @@
             border-radius: 10px;
             margin: 10px;
             font-size: 1.1em;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
         }
         iframe {
             width: 100%;
@@ -74,12 +90,29 @@
             border-radius: 50%;
             border: 5px solid #FFB74D;
             margin-top: 20px;
+            animation: pulse 2s infinite;
         }
-        h1, h2 {
-            margin: 0;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes swing {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-3deg); }
+            100% { transform: rotate(0deg); }
         }
         @media (max-width: 600px) {
-            .wood-sign { font-size: 1.5em; height: 120px; }
+            .wood-sign { font-size: 1.8em; height: 120px; }
             .btn { font-size: 1em; padding: 10px 20px; }
             #baby-photo { width: 120px; height: 120px; }
         }
@@ -138,3 +171,12 @@
 
 </body>
 </html>
+"""
+
+# Guardar el archivo HTML con animaciones
+with open("/mnt/data/index_animated.html", "w", encoding="utf-8") as f:
+    f.write(html_animated)
+
+"/mnt/data/index_animated.html"
+
+

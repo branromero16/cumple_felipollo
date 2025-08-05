@@ -83,7 +83,6 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            /* PARA MOVER LA CAJA A LOS LADOS AJUSTA ESTOS DOS VALORES: */
             transform: translate(calc(-50% + 0px), calc(-40% + 0px));
             border: none;
         }
@@ -151,6 +150,12 @@
             #baby-photo { width: 120px; height: 120px; }
             .gallery img { width: 45%; }
         }
+
+        /* Forzar visibilidad inicial de las secciones */
+        .section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
     </style>
 </head>
 <body>
@@ -160,7 +165,6 @@
     <div class="name-below">Felipe Romero</div>
 </div>
 
-    
 <!-- SECCIÓN 1 (MENSAJE PRINCIPAL) -->
 <style>
     @keyframes zoomInOut {
@@ -215,8 +219,6 @@
     </a>
 </section>
 
-
-
 <!-- SECCIÓN 2 (DETALLES DEL EVENTO) -->
 <style>
     @keyframes zoomInOut {
@@ -246,19 +248,17 @@
     }
 
     .event-details p {
-        margin: 2px 0; /* Reduce espacio vertical */
+        margin: 2px 0;
     }
 </style>
 
 <section class="section" id="detalles" style="padding: 0; background: none; box-shadow: none; max-width: none;">
-    <!-- Texto fuera de la imagen -->
     <div class="event-details" style="text-align: center; margin-bottom: 10px;">
         <h2 class="section-title" style="margin-bottom: 8px;">Detalles del Evento</h2>
         <p class="section-text"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
         <p class="section-text"><strong>Hora:</strong> 13:00 hs</p>
     </div>
 
-    <!-- Imagen con botón adentro arriba -->
     <div class="animated-section" style="
         position: relative;
         background-image: url('fondo_seccion2.png');
@@ -279,21 +279,6 @@
         ">Confirmar Asistencia</a>
     </div>
 </section>
-
-<script>
-    // Para detener la animación en celulares cuando lo toquen:
-    const btn = document.querySelector('.animated-btn');
-    btn.addEventListener('click', function() {
-        btn.style.animationPlayState = 'paused';
-        setTimeout(() => {
-            btn.style.animationPlayState = 'running';
-        }, 3000); // Pausa 3 segundos al tocarlo
-    });
-</script>
-
-
-
-
 
 <!-- SECCIÓN 3 (CONTADOR) -->
 <style>
@@ -333,16 +318,15 @@
     <div id="countdown" class="countdown-box flip-countdown">Cargando...</div>
 </section>
 
-
 <!-- SECCIÓN 4 (MAPA) -->
 <style>
     .mapa-container {
-        background: transparent; /* Fondo totalmente transparente */
+        background: transparent;
         border-radius: 20px;
         padding: 20px;
         margin: 0 auto;
         max-width: 650px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra sutil */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 
@@ -379,9 +363,6 @@
     </div>
 </section>
 
-
-
-    
 <script>
     const countdown = document.getElementById('countdown');
     const eventDate = new Date('2025-08-23T13:00:00').getTime();
@@ -395,20 +376,8 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        countdown.innerHTML = distance < 0 ? "¡Ya comenzó la fiesta!" : ${days} días ${hours} horas ${minutes} min ${seconds} seg;
+        countdown.innerHTML = distance < 0 ? "¡Ya comenzó la fiesta!" : `${days} días ${hours} horas ${minutes} min ${seconds} seg`;
     }, 1000);
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    });
-    document.querySelectorAll('.section').forEach(section => {
-        observer.observe(section);
-    });
 </script>
 
 </body>

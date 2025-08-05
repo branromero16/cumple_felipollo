@@ -160,6 +160,30 @@
     <div class="name-below">Felipe Romero</div>
 </div>
 <!-- SECCIÓN 1 (MENSAJE PRINCIPAL) -->
+<style>
+    @keyframes zoomInOut {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    #baby-photo,
+    .gallery img {
+        animation: zoomInOut 3s infinite ease-in-out;
+    }
+
+    /* Para hacer que se alternen (empiecen desfasadas) */
+    .gallery img:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .gallery img:nth-child(2) {
+        animation-delay: 1.5s;
+    }
+    #baby-photo {
+        animation-delay: 0.75s;
+    }
+</style>
+
 <section class="section" id="mensaje" style="background-image: url('fondo_seccion1.jpg');">
     <h2>¡Cumple su primer añito!</h2>
     <p>Parece mentira, pero ya pasó un año desde que llegó a nuestras vidas y queremos celebrarlo con vos.</p>
@@ -169,6 +193,7 @@
         <img src="1_ANIMALITOS.png" alt="Felipe sonriendo">
     </div>
 </section>
+
 
 <!-- SECCIÓN 2 (DETALLES DEL EVENTO) -->
 <section class="section" id="detalles" style="padding: 0; background: none; box-shadow: none; max-width: none;">
@@ -243,6 +268,7 @@
 
 </body>
 </html>
+
 
 
 

@@ -249,10 +249,21 @@
 
 
 <!-- SECCIÓN 3 (DETALLES DEL EVENTO) -->
+<style>
+    @keyframes slowSpin {
+        0% { transform: translate(-50%, -40%) rotate(0deg); }
+        100% { transform: translate(-50%, -40%) rotate(360deg); }
+    }
+
+    .rotating-countdown {
+        animation: slowSpin 20s linear infinite;
+    }
+</style>
 <section class="section" id="contador" style="background-image: url('fondo_seccion3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; height: 400px;">
     <h2 class="section-title" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); margin: 0;">Faltan:</h2>
-    <div id="countdown" class="countdown-box">Cargando...</div>
+    <div id="countdown" class="countdown-box rotating-countdown">Cargando...</div>
 </section>
+
 <!-- SECCIÓN 4 (DETALLES DEL EVENTO) -->
 <section class="section" id="mapa" style="background-image: url('fondo_seccion4.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 40px 0; text-align: center;">
     <h2 style="margin-bottom: 20px;">¿Dónde nos encontramos?</h2>
@@ -290,6 +301,7 @@
 
 </body>
 </html>
+
 
 
 

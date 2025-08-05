@@ -28,7 +28,7 @@
             width: 300px;
             max-width: 80%;
             height: auto;
-            animation: swing 3s infinite;
+            animation: swing 3s infinite, float 6s ease-in-out infinite;
         }
         .name-below {
             font-family: 'Rock Salt', cursive;
@@ -48,12 +48,11 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transform: translateY(20px);
             opacity: 0;
-            animation: slideUp 1s forwards;
+            transition: transform 0.3s, opacity 0.3s;
         }
-        .section:nth-of-type(2) { animation-delay: 1s; }
-        .section:nth-of-type(3) { animation-delay: 2s; }
-        .section:nth-of-type(4) { animation-delay: 3s; }
-
+        .section:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
         .section-title {
             font-family: 'Rock Salt', cursive;
             font-size: 2.5em;
@@ -82,6 +81,7 @@
             color: #2F4F1E;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             margin-top: 20px;
+            transition: transform 0.3s ease-in-out;
         }
 
         .btn {
@@ -95,7 +95,10 @@
             font-size: 1.2em;
             transition: transform 0.2s;
         }
-        .btn:hover { transform: scale(1.05); }
+        .btn:hover {
+            transform: scale(1.05);
+            animation: glow 1s infinite alternate;
+        }
 
         iframe {
             width: 100%;
@@ -115,9 +118,12 @@
             max-width: 200px;
             border-radius: 15px;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.4s, box-shadow 0.3s;
         }
-        .gallery img:hover { transform: scale(1.05); }
+        .gallery img:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
 
         #baby-photo {
             width: 150px;
@@ -130,19 +136,11 @@
         }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        @keyframes swing {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(3deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(-3deg); }
-            100% { transform: rotate(0deg); }
-        }
+        @keyframes fadeInUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        @keyframes swing { 0% { transform: rotate(0deg); } 25% { transform: rotate(3deg); } 50% { transform: rotate(0deg); } 75% { transform: rotate(-3deg); } 100% { transform: rotate(0deg); } }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        @keyframes glow { 0% { box-shadow: 0 0 5px #FFB74D; } 50% { box-shadow: 0 0 20px #FFB74D; } 100% { box-shadow: 0 0 5px #FFB74D; } }
 
         @media (max-width: 600px) {
             .name-below { font-size: 2em; }
@@ -169,13 +167,7 @@
     </div>
 </section>
 
-<!-- SECCIÓN 2 MODIFICADA SIN BOTÓN DE VER UBICACIÓN -->
-<section class="section" id="detalles" style="
-    background-image: url('fondo_seccion2.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-">
+<section class="section" id="detalles" style="background-image: url('fondo_seccion2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom;">
     <h2 class="section-title">Detalles del Evento</h2>
     <p class="section-text"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
     <p class="section-text"><strong>Hora:</strong> 13:00 hs</p>
@@ -184,68 +176,20 @@
     </div>
 </section>
 
-
-
-<!-- SECCIÓN 3 MODIFICADA -->
-<section class="section" id="contador" style="
-    background-image: url('fondo_seccion3.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    position: relative;
-    height: 400px; /* Ajusta según tamaño de imagen */
-">
-    <h2 class="section-title" style="
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
-    ">Faltan:</h2>
-    
-    <div id="countdown" style="
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        border-radius: 20px;
-        font-size: 2em;
-        font-weight: bold;
-        color: #2F4F1E;
-        width: 220px;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    ">Cargando...</div>
+<section class="section" id="contador" style="background-image: url('fondo_seccion3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; height: 400px;">
+    <h2 class="section-title" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); margin: 0;">Faltan:</h2>
+    <div id="countdown" class="countdown-box" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Cargando...</div>
 </section>
 
-
-<section class="section" id="mapa" style="
-    background-image: url('fondo_seccion4.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 40px 0;
-    text-align: center;
-">
+<section class="section" id="mapa" style="background-image: url('fondo_seccion4.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 40px 0; text-align: center;">
     <h2 style="margin-bottom: 20px;">¿Dónde nos encontramos?</h2>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.598784002763!2d-58.6749692!3d-34.4501111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDI3JzAwLjQiUyA1OMKwNDAnMjAuNiJX!5e0!3m2!1ses-419!2sar!4v1690000000000!5m2!1ses-419!2sar" 
-        width="100%" 
-        height="400" 
-        style="border:0; max-width:600px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.598784002763!2d-58.6749692!3d-34.4501111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDI3JzAwLjQiUyA1OMKwNDAnMjAuNiJX!5e0!3m2!1ses-419!2sar!4v1690000000000!5m2!1ses-419!2sar" width="100%" height="400" style="border:0; max-width:600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
-
-
 
 <script>
     const countdown = document.getElementById('countdown');
     const eventDate = new Date('2025-08-23T13:00:00').getTime();
+    let lastTime = "";
 
     setInterval(() => {
         const now = new Date().getTime();
@@ -256,23 +200,28 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        countdown.innerHTML = `${days} días ${hours} horas ${minutes} min ${seconds} seg`;
+        const newTime = `${days} días ${hours} horas ${minutes} min ${seconds} seg`;
 
-        if (distance < 0) {
-            countdown.innerHTML = "¡Ya comenzó la fiesta!";
+        if (newTime !== lastTime) {
+            countdown.style.transform = "rotateX(360deg)";
+            setTimeout(() => countdown.style.transform = "rotateX(0deg)", 500);
         }
+
+        countdown.innerHTML = distance < 0 ? "¡Ya comenzó la fiesta!" : newTime;
+        lastTime = newTime;
     }, 1000);
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = "fadeInUp 1s forwards";
+            }
+        });
+    });
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

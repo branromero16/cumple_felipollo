@@ -238,12 +238,22 @@
     }
 
     .animated-btn {
+        background-color: #ff7f50;
+        color: white;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        font-size: 1.2em;
         animation: zoomInOutButton 4s infinite ease-in-out;
         animation-play-state: running;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     .animated-btn:hover {
+        background-color: #ff6347;
         animation-play-state: paused;
     }
 
@@ -271,7 +281,7 @@
         margin: 0 auto;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     ">
-        <a class="btn animated-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank" style="
+        <a class="animated-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank" style="
             position: absolute;
             top: 10px;
             left: 50%;
@@ -279,6 +289,7 @@
         ">Confirmar Asistencia</a>
     </div>
 </section>
+
 
 <!-- SECCIÓN 3 (CONTADOR) -->
 <style>
@@ -382,3 +393,4 @@
 
 </body>
 </html>
+

@@ -1,6 +1,3 @@
-# Crear un archivo HTML mejorado con animaciones y efectos visuales
-
-html_animated = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,14 +28,15 @@ html_animated = """
         .wood-sign {
             width: 80%;
             max-width: 500px;
-            background: url('TEMA_DE_ANIMALITOS.jpeg') no-repeat center top;
-            background-size: contain;
             height: 150px;
+            background: url('TEMA_DE_ANIMALITOS.jpeg') no-repeat center;
+            background-size: contain;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             color: #6B4F2A;
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: bold;
             margin-bottom: 20px;
             animation: swing 3s infinite;
@@ -83,6 +81,23 @@ html_animated = """
             color: #333;
             margin-top: 20px;
         }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 45%;
+            max-width: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
         #baby-photo {
             width: 150px;
             height: 150px;
@@ -115,6 +130,7 @@ html_animated = """
             .wood-sign { font-size: 1.8em; height: 120px; }
             .btn { font-size: 1em; padding: 10px 20px; }
             #baby-photo { width: 120px; height: 120px; }
+            .gallery img { width: 45%; }
         }
     </style>
 </head>
@@ -128,6 +144,10 @@ html_animated = """
     <h2>¡Cumple su primer añito!</h2>
     <p>Parece mentira, pero ya pasó un año desde que llegó a nuestras vidas y queremos celebrarlo con vos.</p>
     <img id="baby-photo" src="FOTO_DE_FELIPE.jpeg" alt="Felipe">
+    <div class="gallery">
+        <img src="foto_extra1.jpg" alt="Felipe jugando">
+        <img src="foto_extra2.jpg" alt="Felipe sonriendo">
+    </div>
 </section>
 
 <section class="section" id="detalles">
@@ -171,12 +191,4 @@ html_animated = """
 
 </body>
 </html>
-"""
-
-# Guardar el archivo HTML con animaciones
-with open("/mnt/data/index_animated.html", "w", encoding="utf-8") as f:
-    f.write(html_animated)
-
-"/mnt/data/index_animated.html"
-
 

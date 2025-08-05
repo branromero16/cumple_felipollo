@@ -196,6 +196,22 @@
 
 
 <!-- SECCIÓN 2 (DETALLES DEL EVENTO) -->
+<style>
+    @keyframes zoomInOut {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .animated-section {
+        animation: zoomInOut 4s infinite ease-in-out;
+    }
+
+    .animated-btn {
+        animation: zoomInOut 4s infinite ease-in-out;
+        animation-delay: 2s; /* Para que no agranden al mismo tiempo */
+    }
+</style>
 <section class="section" id="detalles" style="padding: 0; background: none; box-shadow: none; max-width: none;">
     <!-- Texto fuera de la imagen -->
     <div style="text-align: center; margin-bottom: 10px;">
@@ -205,7 +221,7 @@
     </div>
 
     <!-- Imagen con botón adentro arriba -->
-    <div style="
+    <div class="animated-section" style="
         position: relative;
         background-image: url('fondo_seccion2.jpg');
         background-size: cover;
@@ -217,7 +233,7 @@
         margin: 0 auto;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     ">
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank" style="
+        <a class="btn animated-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank" style="
             position: absolute;
             top: 10px;
             left: 50%;
@@ -225,6 +241,7 @@
         ">Confirmar Asistencia</a>
     </div>
 </section>
+
 
 
 <section class="section" id="contador" style="background-image: url('fondo_seccion3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; height: 400px;">
@@ -268,6 +285,7 @@
 
 </body>
 </html>
+
 
 
 

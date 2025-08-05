@@ -215,8 +215,15 @@
 
     .animated-btn {
         animation: zoomInOutButton 4s infinite ease-in-out;
+        animation-play-state: running;
+        cursor: pointer;
+    }
+
+    .animated-btn:hover {
+        animation-play-state: paused;
     }
 </style>
+
 <section class="section" id="detalles" style="padding: 0; background: none; box-shadow: none; max-width: none;">
     <!-- Texto fuera de la imagen -->
     <div style="text-align: center; margin-bottom: 10px;">
@@ -242,9 +249,22 @@
             position: absolute;
             top: 10px;
             left: 50%;
+            transform: translateX(-50%);
         ">Confirmar Asistencia</a>
     </div>
 </section>
+
+<script>
+    // Para detener la animación en celulares cuando lo toquen:
+    const btn = document.querySelector('.animated-btn');
+    btn.addEventListener('click', function() {
+        btn.style.animationPlayState = 'paused';
+        setTimeout(() => {
+            btn.style.animationPlayState = 'running';
+        }, 3000); // Pausa 3 segundos al tocarlo
+    });
+</script>
+
 
 
 
@@ -301,6 +321,7 @@
 
 </body>
 </html>
+
 
 
 

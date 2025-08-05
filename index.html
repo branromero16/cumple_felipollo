@@ -224,14 +224,18 @@
     .animated-btn:hover {
         animation-play-state: paused;
     }
+
+    .event-details p {
+        margin: 2px 0; /* Reduce espacio vertical */
+    }
 </style>
 
 <section class="section" id="detalles" style="padding: 0; background: none; box-shadow: none; max-width: none;">
     <!-- Texto fuera de la imagen -->
-    <div style="text-align: center; margin-bottom: 10px;">
-        <h2 class="section-title" style="margin-bottom: 10px;">Detalles del Evento</h2>
-        <p class="section-text" style="display: inline-block;"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
-        <p class="section-text" style="display: inline-block;"><strong>Hora:</strong> 13:00 hs</p>
+    <div class="event-details" style="text-align: center; margin-bottom: 10px;">
+        <h2 class="section-title" style="margin-bottom: 8px;">Detalles del Evento</h2>
+        <p class="section-text"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
+        <p class="section-text"><strong>Hora:</strong> 13:00 hs</p>
     </div>
 
     <!-- Imagen con botón adentro arriba -->
@@ -266,6 +270,7 @@
         }, 3000); // Pausa 3 segundos al tocarlo
     });
 </script>
+
 
 
 
@@ -391,6 +396,7 @@
 
 </body>
 </html>
+
 
 
 

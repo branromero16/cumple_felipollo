@@ -5,20 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer Añito de Felipe Romero</title>
     <style>
-        body { margin: 0; font-family: 'Arial', sans-serif; }
-        header {
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('TEMA_DE_ANIMALITOS.jpeg') no-repeat center bottom;
+            background-size: contain;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-image: url('TEMA_DE_ANIMALITOS.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 20px;
+            justify-content: flex-start;
+            padding-top: 60px;
+            box-sizing: border-box;
         }
-        .section { padding: 50px 20px; text-align: center; }
+        .wood-sign {
+            width: 80%;
+            max-width: 500px;
+            background: url('TEMA_DE_ANIMALITOS.jpeg') no-repeat center top;
+            background-size: contain;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6B4F2A;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+            background: white;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -27,39 +54,45 @@
             text-decoration: none;
             border-radius: 10px;
             margin: 10px;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
-        iframe { width: 100%; height: 300px; border: 0; }
-        #countdown { font-size: 1.8em; color: #333; margin-top: 20px; }
-        #baby-photo {
-            width: 80%;
-            max-width: 300px;
-            border-radius: 20px;
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+        }
+        #countdown {
+            font-size: 1.5em;
+            color: #333;
             margin-top: 20px;
         }
-        h1 { font-size: 2.5em; margin: 0; }
-        h2 { font-size: 1.5em; margin-top: 10px; }
-
+        #baby-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #FFB74D;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            margin: 0;
+        }
         @media (max-width: 600px) {
-            header {
-                padding: 50px 10px;
-                background-position: top;
-            }
+            .wood-sign { font-size: 1.5em; height: 120px; }
             .btn { font-size: 1em; padding: 10px 20px; }
-            #countdown { font-size: 1.5em; }
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.2em; }
+            #baby-photo { width: 120px; height: 120px; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Felipe Romero</h1>
-    <h2>¡Cumple su primer añito!</h2>
-</header>
+<div class="hero">
+    <div class="wood-sign">Felipe Romero</div>
+</div>
 
 <section class="section" id="mensaje">
+    <h2>¡Cumple su primer añito!</h2>
     <p>Parece mentira, pero ya pasó un año desde que llegó a nuestras vidas y queremos celebrarlo con vos.</p>
     <img id="baby-photo" src="FOTO_DE_FELIPE.jpeg" alt="Felipe">
 </section>

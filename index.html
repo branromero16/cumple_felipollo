@@ -161,7 +161,7 @@
 </div>
 
     
-    <!-- SECCIÓN 1 (MENSAJE PRINCIPAL) -->
+<!-- SECCIÓN 1 (MENSAJE PRINCIPAL) -->
 <style>
     @keyframes zoomInOut {
         0% { transform: scale(1); }
@@ -169,32 +169,52 @@
         100% { transform: scale(1); }
     }
 
-    #baby-photo,
     .gallery img {
         animation: zoomInOut 3s infinite ease-in-out;
     }
 
-    /* Para hacer que se alternen (empiecen desfasadas) */
     .gallery img:nth-child(1) {
         animation-delay: 0s;
     }
+
     .gallery img:nth-child(2) {
         animation-delay: 1.5s;
     }
-    #baby-photo {
-        animation-delay: 0.75s;
+
+    .photo-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 15px 25px;
+        font-size: 1.2rem;
+        color: white;
+        background-color: #ff7f50;
+        border: none;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        animation: zoomInOut 2.5s infinite ease-in-out;
+        transition: background-color 0.3s ease;
+    }
+
+    .photo-button:hover {
+        background-color: #ff6347;
     }
 </style>
 
-<section class="section" id="mensaje" style="background-image: url('fondo_seccion1.jpg');">
-    <h2>¡Cumple su primer añito!</h2>
+<section class="section" id="mensaje" style="background-image: url('fondo_seccion1.jpg'); text-align: center; padding: 50px 20px;">
+    <h2>¡Felipe cumple su primer añito! 🎉</h2>
     <p>Parece mentira, pero ya pasó un año desde que llegó a nuestras vidas y queremos celebrarlo con vos.</p>
-    <img id="baby-photo" src="FOTO_DE_FELIPE.jpeg" alt="Felipe">
+
     <div class="gallery">
-        <img src="auto_animalitos.png" alt="Felipe jugando">
-        <img src="1_ANIMALITOS.png" alt="Felipe sonriendo">
+        <img src="auto_animalitos.png" alt="Felipe jugando" style="width: 150px; margin: 10px;">
+        <img src="1_ANIMALITOS.png" alt="Felipe sonriendo" style="width: 150px; margin: 10px;">
     </div>
+
+    <a href="https://paulsbenhotmailcom.pixieset.com/felipe1anito-1/" target="_blank" class="photo-button">
+        Hacé clic y mirá mis mejores sonrisas 😄
+    </a>
 </section>
+
 
 
 <!-- SECCIÓN 2 (DETALLES DEL EVENTO) -->
@@ -393,6 +413,7 @@
 
 </body>
 </html>
+
 
 
 

@@ -272,13 +272,20 @@
 
 <!-- SECCIÓN 3 (CONTADOR) -->
 <style>
-    @keyframes flipEffect {
-    0%   { transform: translate(-50%, -40%) rotateX(0deg); }
-    40%  { transform: translate(-50%, -40%) rotateX(0deg); }   /* visible frontal largo */
-    50%  { transform: translate(-50%, -40%) rotateX(180deg); } /* giro rápido */
-    90%  { transform: translate(-50%, -40%) rotateX(180deg); } /* parte trasera visible */
-    100% { transform: translate(-50%, -40%) rotateX(360deg); } /* vuelta al frontal */
-}
+    @keyframes swing3D {
+        0%, 100% {
+            transform: translate(-50%, -40%) rotateY(0deg) rotateX(0deg);
+        }
+        25% {
+            transform: translate(-50%, -40%) rotateY(10deg) rotateX(5deg);
+        }
+        50% {
+            transform: translate(-50%, -40%) rotateY(0deg) rotateX(0deg);
+        }
+        75% {
+            transform: translate(-50%, -40%) rotateY(-10deg) rotateX(-5deg);
+        }
+    }
 
     @keyframes glowPulse {
         0% { box-shadow: 0 0 10px rgba(255, 183, 77, 0.4); }
@@ -287,7 +294,7 @@
     }
 
     .flip-countdown {
-        animation: flipEffect 4s linear infinite, glowPulse 3s ease-in-out infinite;
+        animation: swing3D 6s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
         transform-style: preserve-3d;
         backface-visibility: hidden;
         perspective: 1000px;
@@ -300,6 +307,7 @@
     <h2 class="section-title" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); margin: 0;">Faltan:</h2>
     <div id="countdown" class="countdown-box flip-countdown">Cargando...</div>
 </section>
+
 
 
 
@@ -383,6 +391,7 @@
 
 </body>
 </html>
+
 
 
 

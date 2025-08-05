@@ -313,7 +313,6 @@
     <div id="countdown" class="countdown-box flip-countdown">Cargando...</div>
 </section>
 
-
 <!-- SECCIÓN 4 (MAPA) -->
 <style>
     .mapa-container {
@@ -324,10 +323,12 @@
         max-width: 650px;
         box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra sutil */
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(30px);
     }
 
     .mapa-container:hover {
-        transform: scale(1.02);
+        transform: translateY(0) scale(1.02);
         box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
 
@@ -355,12 +356,9 @@
 <section class="section" id="mapa" style="background: none; padding: 0; text-align: center;">
     <div class="mapa-container">
         <h2 class="map-title">¿Dónde nos encontramos?</h2>
-        <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.598784002763!2d-58.6749692!3d-34.4501111!2m3!1f0!2f0!3f0!3m2!1i10
-
-
-
-
-
+        <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.598784002763!2d-58.6749692!3d-34.4501111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDI3JzAwLjQiUyA1OMKwNDAnMjAuNiJX!5e0!3m2!1ses-419!2sar!4v1690000000000!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
 <script>
     const countdown = document.getElementById('countdown');
     const eventDate = new Date('2025-08-23T13:00:00').getTime();

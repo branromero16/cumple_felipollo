@@ -270,19 +270,26 @@
 
 <!-- SECCIÓN 3 (DETALLES DEL EVENTO) -->
 <style>
-    @keyframes slowSpin {
-        0% { transform: translate(-50%, -40%) rotate(0deg); }
-        100% { transform: translate(-50%, -40%) rotate(360deg); }
+    @keyframes flipEffect {
+        0%   { transform: translate(-50%, -40%) rotateX(0deg); }
+        25%  { transform: translate(-50%, -40%) rotateX(90deg); }
+        50%  { transform: translate(-50%, -40%) rotateX(180deg); }
+        75%  { transform: translate(-50%, -40%) rotateX(270deg); }
+        100% { transform: translate(-50%, -40%) rotateX(360deg); }
     }
 
-    .rotating-countdown {
-        animation: slowSpin 20s linear infinite;
+    .flip-countdown {
+        animation: flipEffect 10s linear infinite;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
     }
 </style>
+
 <section class="section" id="contador" style="background-image: url('fondo_seccion3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; height: 400px;">
     <h2 class="section-title" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); margin: 0;">Faltan:</h2>
-    <div id="countdown" class="countdown-box rotating-countdown">Cargando...</div>
+    <div id="countdown" class="countdown-box flip-countdown">Cargando...</div>
 </section>
+
 
 <!-- SECCIÓN 4 (DETALLES DEL EVENTO) -->
 <section class="section" id="mapa" style="background-image: url('fondo_seccion4.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 40px 0; text-align: center;">
@@ -321,6 +328,7 @@
 
 </body>
 </html>
+
 
 
 

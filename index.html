@@ -189,15 +189,15 @@
 <!-- SECCIÓN 3 MODIFICADA -->
 <section class="section" id="contador" style="
     background-image: url('fondo_seccion3.jpg');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center bottom;
     position: relative;
-    height: 450px; /* Aumenté altura para mostrar más ancho de la imagen */
+    height: 400px; /* Ajusta según tamaño de imagen */
 ">
     <h2 class="section-title" style="
         position: absolute;
-        top: 20px;
+        top: 10px;
         left: 50%;
         transform: translateX(-50%);
         margin: 0;
@@ -208,23 +208,35 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
         border-radius: 20px;
-        font-size: 2.5em;
+        font-size: 2em;
         font-weight: bold;
         color: #2F4F1E;
-        width: auto;
+        width: 220px;
         text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     ">Cargando...</div>
 </section>
 
 
-
-
-
-<section class="section" id="mapa" style="background-image: url('fondo_seccion4.jpg');">
-    <h2>¿Dónde nos encontramos?</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.6720793517995!2d-58.44781382425801!3d-34.63772007294278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb7cc52c85ff%3A0x3efc915b22325df4!2sUbicaci%C3%B3n!5e0!3m2!1ses!2sar!4v1690000000000!5m2!1ses!2sar"></iframe>
+<section class="section" id="mapa" style="
+    background-image: url('fondo_seccion4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px 0;
+    text-align: center;
+">
+    <h2 style="margin-bottom: 20px;">¿Dónde nos encontramos?</h2>
+    <iframe
+        width="100%" height="400"
+        style="border:0; max-width:600px;"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed/v1/place?key=TU_API_KEY&q=Groussac+2510,+Buenos+Aires+Argentina&zoom=17">
+    </iframe>
 </section>
 
 <script>
@@ -250,6 +262,7 @@
 
 </body>
 </html>
+
 
 
 

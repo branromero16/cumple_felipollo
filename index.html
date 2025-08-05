@@ -160,12 +160,37 @@
     <div class="name-below">Felipe Romero</div>
 </div>
 
-<section class="section" id="detalles" style="background-image: url('fondo_seccion2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom;">
-    <h2 class="section-title">Detalles del Evento</h2>
-    <p class="section-text"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
-    <p class="section-text"><strong>Hora:</strong> 13:00 hs</p>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank">Confirmar Asistencia</a>
+<!-- SECCIÓN 2 (DETALLES DEL EVENTO) -->
+<section class="section" id="detalles" style="padding: 0; background: none; box-shadow: none; max-width: none;">
+    <!-- Texto fuera de la imagen -->
+    <div style="text-align: center; margin-bottom: 10px;">
+        <h2 class="section-title" style="margin-bottom: 10px;">Detalles del Evento</h2>
+        <p class="section-text" style="display: inline-block;"><strong>Fecha:</strong> 23 de Agosto de 2025</p>
+        <p class="section-text" style="display: inline-block;"><strong>Hora:</strong> 13:00 hs</p>
+    </div>
+
+    <!-- Imagen con botón adentro arriba -->
+    <div style="
+        position: relative;
+        background-image: url('fondo_seccion2.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    ">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUYi4DkhKdx2QliQMhQUMdh2yitsQEp3wdA77HuX13SR3oyA/viewform?usp=dialog" target="_blank" style="
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        ">Confirmar Asistencia</a>
+    </div>
 </section>
+
 
 <section class="section" id="contador" style="background-image: url('fondo_seccion3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; height: 400px;">
     <h2 class="section-title" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); margin: 0;">Faltan:</h2>
@@ -208,6 +233,7 @@
 
 </body>
 </html>
+
 
 
 
